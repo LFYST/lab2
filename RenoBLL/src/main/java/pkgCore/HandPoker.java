@@ -316,6 +316,7 @@ public class HandPoker extends Hand implements Comparable {
 	 * @return 'true' if Hand is a Straight
 	 * 
 	 */
+		// test...
 	private boolean isStraight() {
 		boolean bisStraight = false;
 		// TODO - Complete implementation for this method.
