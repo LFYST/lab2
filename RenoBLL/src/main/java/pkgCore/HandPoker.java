@@ -270,7 +270,7 @@ public class HandPoker extends Hand implements Comparable {
 		
 		boolean bisFourOfAKind = false;
 
-		if ((GetCRCSize() == eRowCount.Two.getiRowCountItems()) && (GetCRCCount(eRow.ONE.ordinal()) == 4)) {
+		if ((GetCRCSize() == eRowCount.TWO.getiRowCountItems()) && (GetCRCCount(eRow.ONE.ordinal()) == 4)) {
 			HandScorePoker HSP = (HandScorePoker) this.getHS();
 			HSP.seteHandStrength(eHandStrength.FourOfAKind);
 			HSP.setHiCard(this.getCards().get(this.getCRC().get(eRow.ONE.ordinal()).getiCardPosition()));
@@ -281,7 +281,7 @@ public class HandPoker extends Hand implements Comparable {
 		}
 		return bisFourOfAKind;
 	}
-	}
+	
 
 	/**
 	 * @author BRG
@@ -359,7 +359,7 @@ public class HandPoker extends Hand implements Comparable {
 			HandScorePoker HSP = (HandScorePoker) this.getHS();
 			HSP.seteHandStrength(eHandStrength.TwoPair);
 			HSP.setHiCard(this.getCards().get(this.getCRC().get(eRow.ONE.ordinal()).getiCardPosition()));
-			HSP.setLoCard(this.getCards().get(this.getCRC().get(eRow.ONE.ordinal()).getiCardPosition()));
+			HSP.setLoCard(this.getCards().get(this.getCRC().get(eRow.TWO.ordinal()).getiCardPosition()));
 			HSP.setKickers(FindTheKickers(this.getCRC()));
 			this.setHS(HSP);
 		bisTwoPair = true;
