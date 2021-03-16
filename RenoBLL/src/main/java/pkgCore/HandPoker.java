@@ -242,7 +242,7 @@ public class HandPoker extends Hand implements Comparable {
 	private boolean isRoyalFlush() {
 		//When the card matches this straight flushs check for order
 		boolean bIsRoyalFlush = false;
-		if (bisStraightFlush() && this.getCards().get(1).geteRank().getiRankNbr() == 13) {
+		if (isStraightFlush() && this.getCards().get(1).geteRank().getiRankNbr() == 13) {
 			HandScorePoker HSP = (HandScorePoker) this.getHS();
 			HSP.seteHandStrength(eHandStrength.RoyalFlush);
 			HSP.setHiCard(this.getCards().get(this.getCRC().get(eRow.ONE.ordinal()).getiCardPosition()));
