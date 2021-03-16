@@ -240,9 +240,17 @@ public class HandPoker extends Hand implements Comparable {
 	 * 
 	 */
 	private boolean isRoyalFlush() {
-
+		//When the card matches this straight flushs check for order
 		boolean bIsRoyalFlush = false;
-		// TODO - Complete implementation for this method.
+		if (bisStraightFlush() && this.getCards().get(1).geteRank().getiRankNbr() == 13) {
+			HandScorePoker HSP = (HandScorePoker) this.getHS();
+			HSP.seteHandStrength(eHandStrength.RoyalFlush);
+			HSP.setHiCard(this.getCards().get(this.getCRC().get(eRow.ONE.ordinal()).getiCardPosition()));
+			HSP.setLoCard(null);
+			HSP.setKickers(null);
+			this.setHS(HSP);
+			bIsRoyalFlush = true;
+		}
 		return bIsRoyalFlush;
 	}
 
@@ -255,7 +263,22 @@ public class HandPoker extends Hand implements Comparable {
 	 */
 	private boolean isStraightFlush() {
 		boolean bisStraightFlush = false;
-		// TODO - Complete implementation for this method.
+		boolean doublecheck = isStraight() && isFlush();
+		//double check it is follow the straight and flush
+		if (doublecheck) {
+			HandScorePoker HSP = (HandScorePoker) this.getHS();
+			HSP.seteHandStrength(eHandStrength.StraightFlush);
+			if (this.getCards().get(0).geteRank() == eRank.ACE && this.getCards().get(1).geteRank() == eRank.FIVE) {
+				HSP.setHiCard(this.getCards().get(this.getCRC().get(eRow.TWO.ordinal()).getiCardPosition()));
+			}
+			else {
+				HSP.setHiCard(this.getCards().get(this.getCRC().get(eRow.ONE.ordinal()).getiCardPosition()));
+			}
+			HSP.setLoCard(null);
+			HSP.setKickers(null);
+			this.setHS(HSP);
+			bisStraightFlush = true;
+		}
 		return bisStraightFlush;
 	}
 
