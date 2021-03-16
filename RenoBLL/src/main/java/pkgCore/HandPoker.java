@@ -292,18 +292,17 @@ public class HandPoker extends Hand implements Comparable {
 	 */
 	private boolean isFullHouse() {
 		boolean bisFullHouse = false;
-		if ((GetCRCSize() == eRowCount.TWO.getiRowCountItems()) && (GetCRCCount(eRow.ONE.ordinal()) == 3)) {
-			HandScorePoker HSP = (HandScorePoker) this.getHS();
-			HSP.seteHandStrength(eHandStrength.FullHouse);
-			HSP.setHiCard(this.getCards().get(this.getCRC().get(eRow.ONE.ordinal()).getiCardPosition()));
-			HSP.setLoCard(this.getCards().get(this.getCRC().get(eRow.TWO.ordinal()).getiCardPosition()));
-			HSP.setKickers(FindTheKickers(this.getCRC()));
-			this.setHS(HSP);
-			bisFullHouse = true;
-		}
-		return bisFullHouse;
-	}
-
+        if ((GetCRCSize() == eRowCount.TWO.getiRowCountItems()) && (GetCRCCount(eRow.ONE.ordinal()) == 3)) {
+            HandScorePoker HSP = (HandScorePoker) this.getHS();
+            HSP.seteHandStrength(eHandStrength.FullHouse);
+            HSP.setHiCard(this.getCards().get(this.getCRC().get(eRow.ONE.ordinal()).getiCardPosition()));
+            HSP.setLoCard(this.getCards().get(this.getCRC().get(eRow.TWO.ordinal()).getiCardPosition()));
+            HSP.setKickers(null);
+            this.setHS(HSP);
+            bisFullHouse = true;
+        }
+        return bisFullHouse;
+    }
 	/**
 	 * @author BRG
 	 * @version Lab #2
