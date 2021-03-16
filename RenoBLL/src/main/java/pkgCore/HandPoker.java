@@ -303,7 +303,7 @@ public class HandPoker extends Hand implements Comparable {
         }
         return bisFullHouse;
     }
-	/**
+	/**sssssssssssssss
 	 * @author BRG
 	 * @version Lab #2
 	 * @since Lab #2
